@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
-
+import React from "react";
+import { Route, Routes } from "react-router-dom";
+import Protected from "./components/Protected";
+import { AuthContextProvider } from "./context/AuthContext";
+import Home from "./pages/Home";
+import Signin from "./pages/Signin";
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<AuthContextProvider>
+			<Routes>
+				<Route path="/" element={<Signin />}></Route>
+
+				<Route
+					path="/home"
+					element={
+						<Protected>
+							<Home />
+						</Protected>
+					}
+				></Route>
+			</Routes>
+		</AuthContextProvider>
+	);
 }
 
 export default App;
