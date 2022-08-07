@@ -3,6 +3,7 @@ import { GoogleButton } from "react-google-button";
 import Navbar from "../components/Navbar";
 import { UserAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
+import "../pages/css/Signin.css";
 
 const Signin = () => {
 	const { googleSignIn, user } = UserAuth();
@@ -20,10 +21,11 @@ const Signin = () => {
 		}
 	}, [user]);
 	return (
-		<div>
+		<div className="signin">
 			<Navbar />
-			<p>Sign In</p>
-			<div>
+			{/* <div className="signindiv">Welcome back to Skrate!!</div> */}
+			<div className="signinButton">
+				<h3 className="signindiv">Welcome back to Skrate!!</h3>
 				<GoogleButton onClick={handleGoogleSignIn} />
 			</div>
 		</div>

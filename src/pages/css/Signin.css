@@ -1,0 +1,11 @@
+.signinButton {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 70vh;
+}
+.signindiv {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
